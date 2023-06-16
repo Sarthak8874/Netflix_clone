@@ -17,6 +17,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
     }
     fetchData();
   }, [fetchUrl]);
+
   const opts = {
     height: "390",
     width: "100%",
@@ -25,16 +26,19 @@ function Row({ title, fetchUrl, isLargeRow }) {
       autoplay: 1,
     },
   };
+
   const handleClick = (movie) => {
     if (trailerUrl) {
       setTrailerUrl("");
     } else {
       movieTrailer(movie?.name || " ")
         .then((url) => {
+          console.log(url)
           const urlParams = new URLSearchParams(new URL(url).search);
           setTrailerUrl(urlParams.get("v"));
+          console.log(urlParams.get("v"))
         })
-        .catch((error) => console.log(error));
+        .catch((error) =>setTrailerUrl('j'));
     }
   };
 

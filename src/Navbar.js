@@ -23,7 +23,6 @@ function Navbar() {
   return (
     <div className={`nav ${show && "nav__black"}`}>
       <img className="nav__logo" src={logo} alt="Netflix Logo" />
-      <img className="nav__log" src={logo} alt="Netflix Logo" />
     </div>
   );
 }
